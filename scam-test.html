@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows Security Alert - Virus Detected</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #1e1e1e;
+      border: 3px solid #ff0000;
+      padding: 30px;
+      width: 500px;
+      box-shadow: 0 0 30px red;
+      z-index: 9999;
+    }
+    .modal h1 {
+      color: #ff0000;
+      font-size: 24px;
+    }
+    .modal p {
+      font-size: 18px;
+      margin: 15px 0;
+    }
+    .call-btn {
+      background: #ff0000;
+      color: white;
+      padding: 15px 30px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      margin: 20px;
+    }
+    .blinking {
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="modal">
+    <h1 class="blinking">🚨 CRITICAL SECURITY ALERT 🚨</h1>
+    <p><strong>Microsoft Windows Defender</strong></p>
+    <p>A Trojan virus has been detected on your computer!</p>
+    <p>Your personal data, banking information, and photos are at risk.</p>
+    <p><strong>Call our support immediately:</strong></p>
+    <h2 style="color:#00ff00;">+1 (888) 555-0123</h2>
+    <button class="call-btn" onclick="fakeCall()">CALL NOW TO FIX</button>
+    <p style="font-size:14px; color:#aaa;">Do not close this window. Your computer will be locked.</p>
+  </div>
+
+  <script>
+    // Fake system lock behavior
+    let attempts = 0;
+    function fakeCall() {
+      attempts++;
+      alert("Connecting to Microsoft Support...\n\nPlease wait while we connect you to a technician.");
+      if (attempts > 2) {
+        document.body.innerHTML = `<h1 style="color:red;text-align:center;margin-top:20%;">YOUR COMPUTER IS LOCKED</h1>`;
+      }
+    }
+
+    // Auto-trigger popup every few seconds
+    setInterval(() => {
+      alert("WARNING: Your computer has been infected!\nCall +1 (888) 555-0123 now!");
+    }, 8000);
+  </script>
+
+</body>
+</html>
